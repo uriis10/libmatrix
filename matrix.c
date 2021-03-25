@@ -3,6 +3,8 @@
 //returns a new matrix with rows*cols dimensions and initializes every element in it to 0
 MATRIX create_matrix(int rows, int cols)
 {
+	MATRIX mat;
+
 	//makes sure dimensions are at least 1*1
 	if (rows < 1 || cols < 1)
 		return NULL;
@@ -14,6 +16,16 @@ MATRIX create_matrix(int rows, int cols)
 	}
 
 	return mat;
+}
+
+//creates a matrix with the same dimensions as "copyFrom"
+MATRIX copy_dimensions(MATRIX copyFrom)
+{
+	//makes sure the matrix isn't partialy NULL
+	if (!is_legal_matrix(copyFrom))
+		return NULL;
+
+	return create_matrix(get_rows(copyFrom), get_cols(copyFrom));		//creates and returns a matrix with the same dimensions as "copyFrom"
 }
 
 //free a matrix
