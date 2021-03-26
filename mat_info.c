@@ -2,6 +2,8 @@
  * This file contains functions that give information about matrices.			   *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+#include <stdlib.h>
+#include <stdio.h>
 #include "matrix.h"
 
 //gets the number of columns in a matrix
@@ -16,7 +18,7 @@ int get_cols(MATRIX mat)
 }
 
 //gets the number of rows in a matrix
-int get_rows(MATRIX *mat)
+int get_rows(MATRIX mat)
 {
 	//makes sure the matrix isn't partialy or fully NULL
 	if (!is_legal_matrix(mat))
@@ -29,5 +31,5 @@ int get_rows(MATRIX *mat)
 //checks if a matrix is partialy or fully NULL
 int is_legal_matrix(MATRIX mat)
 {
-	return (mat != NULL && mat[0] != NULL)								//if the matrix is partialy NULL returns 0 and non-zero
+	return (mat != NULL && mat[0] != NULL);								//if the matrix is partialy NULL returns 0 and non-zero
 }
