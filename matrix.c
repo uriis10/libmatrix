@@ -18,6 +18,19 @@ MATRIX create_matrix(int rows, int cols)
 	return mat;
 }
 
+//creates a copy of a matrix
+MATRIX copy_matrix(MATRIX mat)
+{
+	MATRIX copy = copy_dimensions(mat);										//creates a matrix with the same dimensions as the one to copy
+
+	//copys every element from "mat" to "copy"
+	for (int i = 0; i < get_rows(mat); i++)
+		for (int j = 0; j < get_cols(mat); j++)
+			copy[i][j] = mat[i][j];
+
+	return copy;
+}
+
 //creates a matrix with the same dimensions as "copyFrom"
 MATRIX copy_dimensions(MATRIX copyFrom)
 {
