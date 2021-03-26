@@ -2,6 +2,7 @@
  * This file contains functions that create and free matrices.					   *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+#include <stdio.h> 
 #include <stdlib.h>
 #include "matrix.h"
 
@@ -75,4 +76,19 @@ void destroy_matrix(MATRIX mat)
 	}
 	free(mat);															//frees rows
 	mat = NULL;															//for saftey only. used to make sure that checks like (mat == NULL) will work properly
+}
+
+//prints a matrix to the standard input
+void print_matrix(MATRIX mat)
+{
+	//makes sure matrix isn't partially freed already
+	if (!is_legal_matrix(mat))
+		return;
+
+	//prints the matrix to the standard input
+	for (int i = 0; i < get_rows(mat); i++) {
+		for (int j = 0; j < get_cols(mat); j++)
+			printf("%lf ", mat[i][j]);
+		printf("\n");
+	}
 }
