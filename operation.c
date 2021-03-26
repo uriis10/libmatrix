@@ -1,3 +1,7 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * This file contains mathamatical matrix operations.							   *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 #include "matrix.h"
 
 //adds two matrices and returns the resulting matrix
@@ -96,4 +100,30 @@ void sub_to_matrix(MATRIX a, MATRIX b)
 	for (int i = 0; i < get_rows(addTo); i++)
 		for (int j = 0; j < get_cols(addTo); j++)
 			a[i][j] -= b[i][j];	
+}
+
+//multiplies two matrices and returns the resulting matrix
+MATRIX mul_matrix(MATRIX a, MATRIX b)
+{
+	MATRIX result;
+	double sum;
+
+	//makes sure the matrices aren't partialy NULL
+	if (!is_legal_matrix(a) || !is_legal_matrix(b))
+		return NULL;
+	//makes sure the matrices have dimensions that the matrix product is defined for
+	if (get_cols(a) != get_rows(b))
+		return NULL;
+
+	result = create_matrix(get_rows(a), get_cols(b));
+	//loops over the rows of the "a" and multiplies them with the columns of "b"
+	for (int i = 0; i < get_rows(a); i++) {
+		for (int j = 0; j < get_cols(b); j++) {
+			sum = 0;
+			for (int w = 0; w < get_cols(a); w++)
+				result[i][j] += a[i][w] * b[w][j];
+		}
+	}
+			
+	return result;
 }
