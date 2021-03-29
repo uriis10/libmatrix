@@ -13,7 +13,7 @@ int get_cols(MATRIX mat)
 	if (!is_legal_matrix(mat))
 		return EOF;
 
-	return (double)sizeof(mat[0]) / sizeof(mat[0][0]);					/* returns the number of columns by deviding the size of the columns (in bytes) by the size (in bytes) of each element (every
+	return sizeof(mat[0]) / sizeof(mat[0][0]);							/* returns the number of columns by deviding the size of the columns (in bytes) by the size (in bytes) of each element (every
 																			element has the same size) */
 }
 
@@ -24,7 +24,7 @@ int get_rows(MATRIX mat)
 	if (!is_legal_matrix(mat))
 		return EOF;
 
-	return (double)sizeof(mat) / sizeof(mat[0]);						/* returns the number of rows by deviding the size of the row (in bytes) by the size (in bytes) of each element (every
+	return sizeof(mat) / sizeof(mat[0]);								/* returns the number of rows by deviding the size of the row (in bytes) by the size (in bytes) of each element (every
 																			element has the same size) */
 }
 
