@@ -1,3 +1,7 @@
+/*
+ * an example file to show how the library can be used
+ */
+
 #include "matrix.h"
 #include <stdio.h>
 
