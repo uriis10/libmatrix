@@ -135,8 +135,8 @@ MATRIX transpose_matrix(MATRIX mat)
 	MATRIX result = create_matrix(get_cols(mat), get_rows(mat));			//creates the result matrix
 
 	//copys the values of "mat" to "result" but switches the rows and columns
-	for (int i = 0; i < get_cols(mat); i++)
-		for (int j = 0; j < get_rows(mat); j++)
+	for (int i = 0; i < get_rows(mat); i++)
+		for (int j = 0; j < get_cols(mat); j++)
 			result[j][i] = mat[i][j];
 
 	return result;
